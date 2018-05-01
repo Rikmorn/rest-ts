@@ -1,0 +1,7 @@
+{
+  "extends": "./debug.json",
+  "compilerOptions": {
+    "sourceMap": false,
+    "declaration": true
+  }
+}

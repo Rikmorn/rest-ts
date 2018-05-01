@@ -1,0 +1,6 @@
+--require ts-node/register
+-R spec
+--recursive
+--check-leaks
+--exit
+src/**/*.spec.ts
