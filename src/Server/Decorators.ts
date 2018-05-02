@@ -1,6 +1,7 @@
-import { serverMeta, IServerOptions } from "./Metadata";
+import { serverMeta, IServerOptions, IServerMetadata, IStatic } from "./Metadata";
 import { some, fromNullable } from "fp-ts/lib/Option";
 import { IServerAPI } from "./APIServer";
+import { Middleware } from "../Middleware";
 
 export function Rest<T extends object>(options?: IServerOptions) {
   return (target: IServerAPI<T>) => {
@@ -9,20 +10,20 @@ export function Rest<T extends object>(options?: IServerOptions) {
   };
 }
 
-// export function Preprocess<T extends object>(preProcessors: IServerOptions) {
-//   return (target: IServerAPI<T>) => {
-//     serverMeta.set("preprocess", options);
-//   };
-// }
+export function Pre<T extends object>(preProcessors: Middleware | Middleware[]) {
+  return (target: IServerAPI<T>) => {
+    serverMeta.set("preprocess", Array.isArray(preProcessors) ? preProcessors : [preProcessors]);
+  };
+}
 
-// export function PostProcess<T extends object>(postProcessors: IServerOptions) {
-//   return (target: IServerAPI<T>) => {
-//     serverMeta.set("postprocess", options);
-//   };
-// }
+export function Pos<T extends object>(posProcessors: Middleware | Middleware[]) {
+  return (target: IServerAPI<T>) => {
+    serverMeta.set("posprocess", Array.isArray(posProcessors) ? posProcessors : [posProcessors]);
+  };
+}
 
-// export function Static<T extends object>(options: IServerOptions) {
-//   return (target: IServerAPI<T>) => {
-//     serverMeta.set("static", options);
-//   };
-// }
+export function Static<T extends object>(staticOptions: IStatic | IStatic[]) {
+  return (target: IServerAPI<T>) => {
+    serverMeta.set("static", Array.isArray(staticOptions) ? staticOptions : [staticOptions]);
+  };
+}
