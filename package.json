@@ -13,9 +13,10 @@
   "dependencies": {
     "@types/joi": "13.0.8",
     "@types/winston": "2.3.9",
+    "ajv": "6.4.0",
     "fp-ts": "1.4.0",
     "joi": "13.2.0",
-    "serve-static": "^1.13.2",
+    "serve-static": "1.13.2",
     "winston": "2.4.2"
   },
   "devDependencies": {
