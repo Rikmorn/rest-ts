@@ -1,7 +1,7 @@
 import "mocha";
 import { expect } from "chai";
 
-import { ServiceMeta } from "./metadata";
+import { ServiceMeta } from "./ServiceMeta";
 import { some, none } from "fp-ts/lib/Option";
 
 // These tests are  not great, should improve them quite a bit!
