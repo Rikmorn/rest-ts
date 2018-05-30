@@ -1,11 +1,7 @@
 import { fromNullable, Option, none, some } from "fp-ts/lib/Option";
 
 export class ServiceMeta<M extends object> {
-  // private meta: Option<M> = none;
-
-  constructor(private meta: M) {
-    // this.meta = fromNullable(meta);
-  }
+  constructor(private meta: M) {}
 
   public set<P extends keyof M>(prop: P, data: M[P]): this {
     this.meta[prop] = data;

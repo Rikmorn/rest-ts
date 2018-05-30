@@ -1,4 +1,4 @@
-import { ServiceMeta } from "../lib/metadata";
+import { ServiceMeta } from "../lib/ServiceMeta";
 import { Option, none } from "fp-ts/lib/Option";
 import { IServerAPI } from "./APIServer";
 import { Middleware } from "../Middleware";
